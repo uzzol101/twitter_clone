@@ -1,0 +1,41 @@
+
+<% include ./partials/header%>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<h1><%=user.email%></h1>
+
+					<% if(currentUser){%>
+						<span> Followers <span class="badge"><%=followers%></span></span>
+					<%}else{%>
+
+						<%if(following){%>
+						<button id="unfollow" class="btn-sm btn-danger">Following</button>
+						<input id="user_id" type="hidden" value="<%=user._id%>">
+						<span> Followers <span class="badge"><%=followers%></span></span>
+						<%}else{%>
+							<button id="follow" class="btn-sm btn-info">Follow</button>
+						<input id="user_id" type="hidden" value="<%=user._id%>">
+						<span> Followers <span class="badge"><%=followers%></span></span>
+						
+
+						<%}%>
+
+					
+					<%}%>
+
+						
+					</div>
+				</div>
+
+<%user.tweets.forEach((tweet)=>{%>
+<ul class="list-unstyled">
+	<li><a href="/users/<%=user._id%>"><%=tweet.content %></a></li>
+</ul>
+<%})%>
+			</div>
+		</div>
+	</div>
+<% include ./partials/footer%>

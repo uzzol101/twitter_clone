@@ -1,0 +1,39 @@
+<%include ./partials/header%>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<h1>Hello world</h1>
+
+	<form id="sendTweet">
+	
+	
+		<div class="form-group">
+			
+			<input id="tweet" type="text" class="form-control" id="" placeholder="send tweet">
+		</div>
+	
+		
+	
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+
+	<div id="realTweet">
+		
+	</div>
+
+
+	<div>
+		<% tweets.forEach(function(tweet){%>
+		<a href="/users/<%=tweet.owner._id%>">
+			<p><%=tweet.owner.email%></p>
+			<p><%=tweet.content%></p>
+
+		</a>
+		
+		<%})%>
+	</div>
+		</div>
+	</div>
+</div>
+
+<%include ./partials/footer%>
